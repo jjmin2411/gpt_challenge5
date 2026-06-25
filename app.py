@@ -130,6 +130,7 @@ st.markdown(
 )
 
 with st.sidebar:
+    st.link_button("GitHub Repository", "https://github.com/jjmin2411/gpt_challenge5")
     api_key = st.text_input("OpenAI API Key", type="password")
     file = st.file_uploader(
         "Upload a .txt .pdf or .docx file",
