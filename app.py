@@ -1,13 +1,12 @@
 import os
 import streamlit as st
-from langchain.prompts import ChatPromptTemplate, MessagesPlaceholder
-from langchain.document_loaders import UnstructuredFileLoader
-from langchain.embeddings import CacheBackedEmbeddings, OpenAIEmbeddings
-from langchain.schema.runnable import RunnableLambda, RunnablePassthrough
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+from langchain_community.document_loaders import UnstructuredFileLoader
+from langchain.embeddings import CacheBackedEmbeddings
+from langchain_openai import OpenAIEmbeddings, ChatOpenAI
+from langchain_core.runnables import RunnableLambda, RunnablePassthrough
 from langchain.storage import LocalFileStore
-from langchain.text_splitter import CharacterTextSplitter
-from langchain.vectorstores.faiss import FAISS
-from langchain.chat_models import ChatOpenAI
+from langchain_community.vectorstores import FAISS
 from langchain.callbacks.base import BaseCallbackHandler
 from langchain.memory import ConversationBufferMemory
 
@@ -130,7 +129,6 @@ st.markdown(
 )
 
 with st.sidebar:
-    st.link_button("GitHub Repository", "https://github.com/jjmin2411/gpt_challenge5")
     api_key = st.text_input("OpenAI API Key", type="password")
     file = st.file_uploader(
         "Upload a .txt .pdf or .docx file",
